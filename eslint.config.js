@@ -4,12 +4,17 @@ import js from '@eslint/js'; // 官方 JS 推荐配置包
 import globals from 'globals'; // 全局变量定义包
 import tseslint from 'typescript-eslint'; // @typescript-eslint/parser + @typescript-eslint/eslint-plugin 的组合, 让 ESLint 认识 TS 语法并提供规则, tseslint.configs.recommended 就是加载 TS 推荐规则
 import pluginReact from 'eslint-plugin-react'; // 导入 react 插件, 检查 react 相关规则, jsx 是否正确使用, 组件命名规范等
-import { defineConfig } from 'eslint/config'; // ESLint 8.21+ 引入的 flat config 风格
+import { defineConfig, globalIgnores } from 'eslint/config'; // ESLint 8.21+ 引入的 flat config 风格
 import pluginReactHooks from 'eslint-plugin-react-hooks'; // reaxt hooks 的规则
 import pluginImport from 'eslint-plugin-import'; // import/export 规范
+import eslintPrettier from 'eslint-plugin-prettier'; // 把 Prettier 规则当做 ESLint 规则执行, 方便 eslint --fix
+import eslintConfigPrettier from 'eslint-config-prettier'; // 关闭所有与 Prettier 冲突的 ESLint 规则
 
 export default defineConfig([
   // 导出 ESLint 配置数组
+  // v9 新写法, 等价于旧版本 .eslintignore: dist/
+  // 告诉 ESLint 不要检查 构建产物
+  globalIgnores(['dist']),
   {
     files: ['**/*.{js,ts,jsx,tsx}'], // 指定规则应用到哪些文件
     plugins: { js }, // 使用 @eslint/js 插件来检查 JS 规则
@@ -71,6 +76,16 @@ export default defineConfig([
       react: {
         version: 'detect', // 自动检测 React 版本
       },
+    },
+  },
+
+  // Prettier 插件
+  {
+    files: ['**/*.{js,ts,jsx,tsx}'], // 只作用于 .js, .ts, .jsx, .tsx 文件
+    plugins: { prettier: eslintPrettier }, // 注册 Prettier 插件
+    rules: {
+      ...eslintConfigPrettier.rules, // 关闭所有与 Prettier 冲突的 ESLint 规则
+      'prettier/prettier': ['error'], // 把 Prettier 问题作为 ESLint 报错
     },
   },
 ]);

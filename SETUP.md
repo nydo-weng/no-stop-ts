@@ -29,3 +29,32 @@
 2. 额外 ESLint 配置
    1. 安装额外插件 `npm i -D eslint-plugin-react-hooks eslint-plugin-import`, React Hooks 的规则 -> `eslint-plugin-react-hooks`, import/export 规范 -> `eslint-plugin-import`
    2. 修改 ESLint 配置
+      - 目前符合:
+        1. JS 基础规则
+           - 使用 @eslint/js 的 Recommended
+           - 检查常规 JS 语法和潜在问题
+        2. TS 支持
+           - 使用 typescript-eslint, 包含 parser + plugin
+           - 加载了 TS 官方推荐规则 tseslint.configs.recommended
+        3. React 规则
+           - 插件 eslint-plugin-react 已注册
+           - JSX/TSX 文件专门启用规则, 并继承了推荐规则
+        4. React Hooks
+           - 插件 eslint-plugin-react-hooks
+           - 核心规则: rules-of-hooks 和 exhaustive-deps 已经启用
+        5. Import/Export 规范
+           - 插件 eslint-plugin-import
+           - 包含 import/order 统一排序
+           - 包含 import/no-unresolved 防止路径写错
+        6. 全局变量环境
+           - globals.browser + globals.node, 避免误报 window, document, process 等
+        7. React 版本自动检测
+           - setting.react.version = 'detect'
+   3. 配置 prettier
+      1. 安装 Prettier 以及 ESLint 插件 `npm i -D prettier eslint-config-prettier eslint-plugin-prettier`
+         - prettier: 核心格式化工具
+         - eslint-config-prettier: 关闭 ESLint 中与 Prettier 冲突的规则
+         - eslint-plugin-prettier: 把 Prettier 规则当做 ESLint 规则执行, 方便 eslint --fix
+      2. 新建 Prettier 配置文件 `prettier.config.js`
+      3. 配置 ESLint 结合 Prettier
+      
