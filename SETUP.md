@@ -12,4 +12,20 @@
 
 ### ESLint 配置
 
-1. 安装 ESLint `npm init @eslint/config@latest`, 安装后可以 `npx eslint myfile.js` 运行检查
+1. 安装 ESLint `npm init @eslint/config@latest`, 安装后可以 `npx eslint myfile.js` 运行检查 (init 在这里是 **下载并执行该包提供的初始化脚本**)
+
+   1. 选择 `javascript` - what do you want to lint?
+   2. 选择 `To check syntax and find problems` - how would you like to use eslint?
+   3. 选择 `JavaScript modules (import/export)` - what type of modules does your project use?
+   4. 选择 `React` - Which framework does your project use?
+   5. 选择 `yes` - Does your project use TypeScript?
+   6. 选择 `Browser` + `Node` - Where does your code run?, 因为是 react + vite, 开发工具和构建是在 node, 所以一般两项都选, 可以同时检查 node 的全局变量 (比如 window, document, process 等都不会报 undefined 错误.)
+   7. 选择 `JavaScript` - Which language do you want your configuration file be written in?, 实践中通常还是选择 JS 来写 ESLint 配置, 主要原因有:
+      1. 兼容性最好: 所有编辑器和工具对 JS 配置都支持, TS 需要额外设置才能被 ESLint 识别.
+      2. 启动快: 无需额外 loader 就能直接读取
+      3. 通用性: 即使项目是 TS, 也可以用 JS 配置 ESLint, 不会影响规则生效.
+   8. 选择 `yes` - The config that you've selected requires the following dependencies: eslint(核心 ESLint 引擎), @eslint/js(ESLint 官方 JS 配置共享包), globals(提供全局变量环境定义), typescript-eslint(包含@typescript-eslint/parser 和 @typescript-eslint/eslint-plugin, 第一个用于让 ESLint 解析 TS 语法, 第二个提供针对 TS 的具体规则(比如类型安全, 接口命名)), eslint-plugin-react(支持 React 特定规则)
+
+2. 额外 ESLint 配置
+   1. 安装额外插件 `npm i -D eslint-plugin-react-hooks eslint-plugin-import`, React Hooks 的规则 -> `eslint-plugin-react-hooks`, import/export 规范 -> `eslint-plugin-import`
+   2. 修改 ESLint 配置
