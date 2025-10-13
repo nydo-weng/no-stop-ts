@@ -8,9 +8,7 @@
 4. 进入项目目录 `cd app-name`
 5. 安装项目依赖 `npm install`
 
-## 项目配置
-
-### ESLint 配置
+## ESLint 配置
 
 1. 安装 ESLint `npm init @eslint/config@latest`, 安装后可以 `npx eslint myfile.js` 运行检查 (init 在这里是 **下载并执行该包提供的初始化脚本**)
    1. 选择 `javascript` - what do you want to lint?
@@ -60,7 +58,7 @@
    "lint": "eslint .",  
    "lint:fix": "eslint . --fix",
 
-### 别名配置
+## 别名配置
 
 1. 安装 type 支持 `npm i -D @types/node`
 2. vite 配置, 添加 resolve.alias
@@ -69,7 +67,7 @@
    1. 安装依赖 `npm i -D eslint-import-resolver-alias`
    2. 配置 ESLint
 
-### tailwind css
+## tailwind css
 
 1. 安装依赖 `npm i -D tailwindcss @tailwindcss/vite`
 2. 配置 vite,
