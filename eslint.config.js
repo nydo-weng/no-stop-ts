@@ -50,6 +50,14 @@ export default defineConfig([
         },
       ],
       'import/no-unresolved': 'error', // 防止路径写错
+      // 让 ESLint 认识别名配置
+      settings: {
+        'import/resolver': {
+          typescript: {
+            project: '.tsconfig.app.json',
+          },
+        },
+      },
     },
   },
 

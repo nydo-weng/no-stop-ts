@@ -13,7 +13,6 @@
 ### ESLint 配置
 
 1. 安装 ESLint `npm init @eslint/config@latest`, 安装后可以 `npx eslint myfile.js` 运行检查 (init 在这里是 **下载并执行该包提供的初始化脚本**)
-
    1. 选择 `javascript` - what do you want to lint?
    2. 选择 `To check syntax and find problems` - how would you like to use eslint?
    3. 选择 `JavaScript modules (import/export)` - what type of modules does your project use?
@@ -50,11 +49,22 @@
            - globals.browser + globals.node, 避免误报 window, document, process 等
         7. React 版本自动检测
            - setting.react.version = 'detect'
-   3. 配置 prettier
-      1. 安装 Prettier 以及 ESLint 插件 `npm i -D prettier eslint-config-prettier eslint-plugin-prettier`
-         - prettier: 核心格式化工具
-         - eslint-config-prettier: 关闭 ESLint 中与 Prettier 冲突的规则
-         - eslint-plugin-prettier: 把 Prettier 规则当做 ESLint 规则执行, 方便 eslint --fix
-      2. 新建 Prettier 配置文件 `prettier.config.js`
-      3. 配置 ESLint 结合 Prettier
-      
+3. 配置 prettier
+   1. 安装 Prettier 以及 ESLint 插件 `npm i -D prettier eslint-config-prettier eslint-plugin-prettier`
+      - prettier: 核心格式化工具
+      - eslint-config-prettier: 关闭 ESLint 中与 Prettier 冲突的规则
+      - eslint-plugin-prettier: 把 Prettier 规则当做 ESLint 规则执行, 方便 eslint --fix
+   2. 新建 Prettier 配置文件 `prettier.config.js`
+   3. 配置 ESLint 结合 Prettier
+4. 加 Scripts 到 package.json  
+   "lint": "eslint .",  
+   "lint:fix": "eslint . --fix",
+
+### 别名配置
+
+1. 安装 type 支持 `npm i -D @types/node`
+2. vite 配置, 添加 resolve.alias
+3. typescript 配置, 在 tsconfig.app.json 中 (效果: 可以在 TS 中使用别名, VSCode 也会识别)
+4. eslint 配置, 不然它不认识别名
+   1. 安装依赖 `npm i -D eslint-import-resolver-typescript`
+   2. 配置 ESLint
