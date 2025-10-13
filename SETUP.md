@@ -68,3 +68,22 @@
 4. eslint 配置, 不然它不认识别名
    1. 安装依赖 `npm i -D eslint-import-resolver-alias`
    2. 配置 ESLint
+
+### tailwind css
+
+1. 安装依赖 `npm i -D tailwindcss @tailwindcss/vite`
+2. 配置 vite,
+
+   ```ts
+      // vite.config.ts
+      import tailwindcss from '@tailwindcss/vite';
+
+      export default defineConfig({
+         plugins: [
+            ...,
+            tailwindcss(),
+         ],
+      })
+   ```
+
+3. 导入 tailwind css 到 index.css `@import "tailwindcss";`
