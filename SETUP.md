@@ -85,3 +85,27 @@
    ```
 
 3. 导入 tailwind css 到 index.css `@import "tailwindcss";`
+
+## 路由配置
+
+1. 安装依赖 `npm i react-router`
+2. 配置路由
+
+   ```tsx
+   // router.tsx
+   import { createBrowserRouter } from 'react-router';
+
+   const router = createBrowserRouter([
+     {
+       path: '/',
+       element: <div>hello world</div>,
+     },
+   ]);
+   ```
+
+   ```tsx
+   // main.tsx
+   import router from '@/router/router';
+   import { RouterProvider } from 'reaxt-router/dom';
+   createRoot(root).render(<RouterProvider router={router} />);
+   ```

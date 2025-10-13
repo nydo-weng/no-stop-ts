@@ -4,8 +4,7 @@ interface HomeProps {
   children?: ReactNode;
 }
 
-function Home(props: HomeProps) {
-  const children = props.children;
+function Home({ children }: HomeProps) {
   return <div className="w-52 h-52 bg-red-100">this is a home page {children}</div>;
 }
 export default Home;
