@@ -66,5 +66,5 @@
 2. vite 配置, 添加 resolve.alias
 3. typescript 配置, 在 tsconfig.app.json 中 (效果: 可以在 TS 中使用别名, VSCode 也会识别)
 4. eslint 配置, 不然它不认识别名
-   1. 安装依赖 `npm i -D eslint-import-resolver-typescript`
+   1. 安装依赖 `npm i -D eslint-import-resolver-alias`
    2. 配置 ESLint

@@ -1,5 +1,3 @@
-/* eslint-disable import/no-unresolved */ // 消除假报错
-
 import js from '@eslint/js'; // 官方 JS 推荐配置包
 import globals from 'globals'; // 全局变量定义包
 import tseslint from 'typescript-eslint'; // @typescript-eslint/parser + @typescript-eslint/eslint-plugin 的组合, 让 ESLint 认识 TS 语法并提供规则, tseslint.configs.recommended 就是加载 TS 推荐规则
@@ -50,12 +48,13 @@ export default defineConfig([
         },
       ],
       'import/no-unresolved': 'error', // 防止路径写错
-      // 让 ESLint 认识别名配置
-      settings: {
-        'import/resolver': {
-          typescript: {
-            project: '.tsconfig.app.json',
-          },
+    },
+    // // 让 ESLint 认识别名配置
+    settings: {
+      'import/resolver': {
+        alias: {
+          map: [['@', './src']],
+          extensions: ['.js', '.jsx', '.ts', '.tsx'],
         },
       },
     },
