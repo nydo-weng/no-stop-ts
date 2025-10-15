@@ -7,6 +7,7 @@ import Practice from '@/pages/Practice';
 
 const router = createBrowserRouter([
   {
+    // 一级路由, 现在直接挂载到 #root
     path: '/',
     element: <Layout />,
     children: [

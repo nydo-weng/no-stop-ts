@@ -5,3 +5,7 @@
     height: 100%;
   }
 }
+/* 
+- html (100% of viewport)
+- body (100% of html) 
+- #root (100% of body) */

@@ -19,9 +19,9 @@ function Layout() {
   };
 
   return (
-    <div className="h-screen flex flex-col bg-[#8A6460] items-center">
-      <div className="container bg-[#355360] flex-1 flex flex-col">
-        <header className="h-16 w-full bg-[#8EB2C0] flex items-center justify-center">
+    <div className="layout-container h-screen w-screen bg-[#8A6460] flex justify-center">
+      <div className="container h-screen bg-[#355360] flex flex-col">
+        <header className="h-16 w-full bg-[#8EB2C0] flex justify-center">
           <nav className="h-full w-full max-w-2xl bg-[#355360]">
             <ul className="h-full w-full flex items-center justify-between">
               <NavButton path="/practice">刷题</NavButton>
@@ -30,7 +30,7 @@ function Layout() {
             </ul>
           </nav>
         </header>
-        <main className="flex-1 bg-[#F3F6F0]">
+        <main className="flex-1 overflow-hidden">
           <Outlet />
         </main>
       </div>
