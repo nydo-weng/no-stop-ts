@@ -1,9 +1,9 @@
 import { createBrowserRouter } from 'react-router';
 
-import Home from '@/pages/Home';
 import Manage from '@/pages/Manage';
 import Setting from '@/pages/Setting';
 import Layout from '@/pages/Layout';
+import Practice from '@/pages/Practice';
 
 const router = createBrowserRouter([
   {
@@ -12,11 +12,11 @@ const router = createBrowserRouter([
     children: [
       {
         // 默认路由
-        index: true,
-        element: <Home />,
+        path: '/practice',
+        element: <Practice />,
       },
       {
-        path: '/manage',
+        index: true,
         element: <Manage />,
       },
       {

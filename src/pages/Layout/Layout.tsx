@@ -24,8 +24,8 @@ function Layout() {
         <header className="h-16 w-full bg-[#8EB2C0] flex items-center justify-center">
           <nav className="h-full w-full max-w-2xl bg-[#355360]">
             <ul className="h-full w-full flex items-center justify-between">
-              <NavButton path="/">刷题</NavButton>
-              <NavButton path="/manage">题库管理</NavButton>
+              <NavButton path="/practice">刷题</NavButton>
+              <NavButton path="/">题库管理</NavButton>
               <NavButton path="/setting">设置</NavButton>
             </ul>
           </nav>
